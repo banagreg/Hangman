@@ -5,13 +5,14 @@ import { HangmanWord } from "./components/HangmanWord";
 import { Keyboard } from "./components/Keyboard";
 import { MISTAKES } from "./constants/constants";
 import { RefreshBtn } from "./components/RefreshBtn";
+import { Score } from "./components/Score";
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(getWord);
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [wins, setWins] = useState<number>(0);
-  const [loses, setLoses] = useState<number>(0);
+  const [losses, setLosses] = useState<number>(0);
 
   const incorrectLetters = guessedLetters.filter(letter => !wordToGuess.includes(letter));
   
@@ -25,7 +26,6 @@ function App() {
   }
 
   function refresh(){
-      //e.preventDefault();
       setWordToGuess(getWord());
       setGuessedLetters([]);
   }
@@ -59,12 +59,12 @@ function App() {
     }
 
     if(isLoser){
-      setLoses(loses + 1)
+      setLosses(losses + 1)
     }
   },[isLoser, isWinner])
 
   console.log(wins)
-  console.log(loses)
+  console.log(losses)
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -85,7 +85,8 @@ function App() {
   }, [])
 
 
-  return (
+  return (<>
+    <Score wins={wins} losses={losses}/>
     <div style={{
       maxWidth: '800px',
       display: 'flex',
@@ -96,7 +97,7 @@ function App() {
     }}>
       <div style={{fontSize: '2rem', textAlign: 'center'}}>
         {isWinner && <>
-          <h2>You have won! Refresh to try again!</h2>
+          <h2>Yey! You have won!</h2>
           <RefreshBtn onClick={refresh} />
         </>}
         {isLoser && (<>
@@ -117,6 +118,7 @@ function App() {
       addGuessedLetter={addGuessedLetter}/>
       </div>
     </div>
+    </>
   )
 }
 
