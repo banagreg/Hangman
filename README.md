@@ -43,4 +43,5 @@ To run this project locally, follow these steps:
 - Guess the word before the hangman is completely drawn to win the round.
 - If the hangman is fully drawn before you guess the word, you lose the round.
 
-<img src="hangman\src\constants\hangman_image.png" alt="Hangman Game" width="700"/>
+<img src="hangman\src\images\hangman_loss.png" alt="Hangman Game" width="700"/>
+<img src="hangman\src\images\hangman_win.png" alt="Hangman Game" width="700"/>
