@@ -59,12 +59,9 @@ function App() {
     }
 
     if(isLoser){
-      setLosses(losses + 1)
+      setLosses(losses + 1);
     }
-  },[isLoser, isWinner])
-
-  console.log(wins)
-  console.log(losses)
+  },[isLoser, isWinner]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
