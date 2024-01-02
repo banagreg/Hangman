@@ -13,11 +13,11 @@
 
 .btn:hover:not(:disabled),
 .btn:focus:not(:disabled){
-	background-color: hsl(200, 100%, 75%);
+	background-color: rgb(181, 181, 181);
 }
 
 .btn.active {
-	background-color: hsl(200, 100%, 50%);
+	background-color: hsl(109, 95%, 41%);
 }
 
 .btn.inactive {
